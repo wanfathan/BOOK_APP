@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ================================================== -->
+<!-- ACTIVITY B - BOOK DETAILS SCREEN LAYOUT -->
+<!-- ================================================== -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#ffecc9">
+
+    <!-- ========== MAIN CONTENT CONTAINER ========== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ========== BOOK COVER IMAGE ========== -->
+        <ImageView
+            android:id="@+id/detailBookImage"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/book_image_desc" />
+
+        <!-- ========== BOOK TITLE ========== -->
+        <TextView
+            android:id="@+id/detailBookTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:text="Book Title" />
+
+        <!-- ========== BOOK AUTHOR ========== -->
+        <TextView
+            android:id="@+id/detailBookAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="Book Author" />
+
+        <!-- ========== READING TIME ========== -->
+        <!-- Variation Code: Extra Field - Time -->
+        <TextView
+            android:id="@+id/detailBookTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="Reading Time: 5 hours" />
+
+        <!-- ========== BOOK DESCRIPTION ========== -->
+        <TextView
+            android:id="@+id/detailBookDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:paddingTop="16dp"
+            android:lineSpacingExtra="4sp"
+            android:text="Book Description" />
+
+
+        <!-- ========== ACTION BUTTONS ========== -->
+
+        <!-- Variation Code: "Try it" Button -->
+        <Button
+            android:id="@+id/tryItButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="@string/try_it"
+            android:textSize="16sp"
+            android:minWidth="120dp" /> <!-- Minimum touch target size -->
+
+        <!-- Share Button - Implicit Intent -->
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="@string/share"
+            android:textSize="16sp"
+            android:minWidth="120dp" /> <!-- Minimum touch target size -->
+
+    </LinearLayout>
+
+</ScrollView>

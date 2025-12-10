@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ============================================= -->
+<!-- INDIVIDUAL BOOK CARD LAYOUT FOR MAIN GRID -->
+<!-- This defines how each book appears in the staggered grid -->
+<!-- ============================================= -->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bookCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <!-- ============================================= -->
+    <!-- MAIN CONTENT CONTAINER -->
+    <!-- ============================================= -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ============================================= -->
+        <!-- BOOK COVER IMAGE -->
+        <!-- ============================================= -->
+
+        <ImageView
+            android:id="@+id/bookImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/book_image_desc" />
+
+        <!-- ============================================= -->
+        <!-- BOOK TITLE -->
+        <!-- ============================================= -->
+
+        <TextView
+            android:id="@+id/bookTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="6dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="Book Title" />
+
+        <!-- ============================================= -->
+        <!-- BOOK AUTHOR -->
+        <!-- ============================================= -->
+        <TextView
+            android:id="@+id/bookAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:paddingTop="2dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="Book Author" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

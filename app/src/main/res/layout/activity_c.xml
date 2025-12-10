@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ============================================= -->
+<!-- ABOUT/STYLE ACTIVITY LAYOUT (ACTIVITY C) -->
+<!-- Displays personal info and variation code -->
+<!-- ============================================= -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffa500"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <!-- ============================================= -->
+    <!-- APPLICATION TITLE -->
+    <!-- ============================================= -->
+    <TextView
+        android:id="@+id/appNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="32dp" />
+
+    <!-- ============================================= -->
+    <!-- PERSONAL NAME -->
+    <!-- ============================================= -->
+    <TextView
+        android:id="@+id/yourNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp" />
+
+
+    <!-- ============================================= -->
+    <!-- PERSONAL BOOK DESCRIPTION -->
+    <!-- ============================================= -->
+    <TextView
+        android:id="@+id/wanDecText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="The books in here are the books I read and will read"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold|italic" />
+
+    <!-- ============================================= -->
+    <!-- VARIATION CODE DISPLAY -->
+    <!-- ============================================= -->
+    <TextView
+        android:id="@+id/variationCodeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/variation_code"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+
+    <!-- ============================================= -->
+    <!-- VARIATION CODE MAPPING DETAILS -->
+    <!-- ============================================= -->
+    <TextView
+        android:layout_width="267dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="32dp"
+        android:background="#FFF3E0"
+        android:gravity="center"
+        android:lineSpacingExtra="4sp"
+        android:padding="16dp"
+        android:text="Theme: Books (14 % 6 = 2)\nLayout: Staggered Grid (14 % 3 = 2)\nAccent: Orange (14 % 4 = 2)\nExtra Field: Time (14 % 5 = 4)\nAction Button: Try it (14 % 2 = 0)"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- ============================================= -->
+    <!-- LARGE TEXT TOGGLE SWITCH -->
+    <!-- ============================================= -->
+    <Switch
+        android:id="@+id/largeTextSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/large_text_toggle"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

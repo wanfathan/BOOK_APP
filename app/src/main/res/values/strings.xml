@@ -1,0 +1,71 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Wan Fathan Book Catalog</string>
+
+    <!-- Accessibility -->
+    <string name="book_image_desc">Book cover image</string>
+
+    <!-- UI Strings for Activities B and C -->
+    <string name="try_it">Try it</string>
+    <string name="share">Share</string>
+    <string name="about_me">About Me</string>
+    <string name="your_name">Wan Fathanulhanif Edruce</string>
+    <string name="variation_code">Variation Code: 14 (101314)</string>
+    <string name="large_text_toggle">Large Text Mode</string>
+    <string name="time_label">Reading Time:</string>
+
+    <!-- Book 1 -->
+    <string name="book1_title">Anne Frank: The Diary of a Young Girl</string>
+    <string name="book1_author">Anne Frank</string>
+    <string name="book1_desc">The deeply moving and poignant diary of a young Jewish girl who spent two years in hiding with her family during the Nazi occupation of the Netherlands. Written between 1942 and 1944, Anne\'s diary provides an intimate and heartbreaking account of her thoughts, dreams, and fears while confined in the secret annex. Her remarkable wisdom, hope, and belief in the goodness of people despite unimaginable circumstances has made this one of the most powerful and enduring documents of the Holocaust era.</string>
+    <string name="book1_time">6 hours (283 pages)</string>
+
+    <!-- Book 2 -->
+    <string name="book2_title">How to Win Friends and Influence People</string>
+    <string name="book2_author">Dale Carnegie</string>
+    <string name="book2_desc">One of the most influential self-help books ever written, this timeless classic provides fundamental techniques for handling people, ways to make them like you, strategies to win them to your way of thinking, and methods for changing people without arousing resentment. Filled with practical advice and real-life examples, Carnegie teaches the art of communication, the importance of genuine interest in others, and how to become a more effective leader and communicator in both personal and professional relationships.</string>
+    <string name="book2_time">5 hours (288 pages)</string>
+
+    <!-- Book 3 -->
+    <string name="book3_title">The Alchemist</string>
+    <string name="book3_author">Paulo Coelho</string>
+    <string name="book3_desc">This enchanting international bestseller tells the mystical story of Santiago, an Andalusian shepherd boy who dreams of traveling the world in search of treasure. His journey takes him from his home in Spain to the exotic markets of Tangiers and across the Egyptian desert in pursuit of his Personal Legend. Along the way, he meets extraordinary characters who teach him about listening to his heart, recognizing omens, and understanding that the universe conspires to help those who pursue their dreams with passion and purpose.</string>
+    <string name="book3_time">5 hours (208 pages)</string>
+
+    <!-- Book 4 -->
+    <string name="book4_title">Meditations</string>
+    <string name="book4_author">Marcus Aurelius</string>
+    <string name="book4_desc">The personal philosophical writings of Roman Emperor Marcus Aurelius, written as a source for his own guidance and self-improvement. This profound work of Stoic philosophy offers timeless wisdom on how to live with virtue, reason, and resilience in the face of adversity. Divided into twelve books, Meditations explores themes of mortality, duty, nature, and the importance of focusing on what is within our control while accepting what is not. It remains one of the greatest works of spiritual and ethical reflection ever written.</string>
+    <string name="book4_time">7 hours (256 pages)</string>
+
+    <!-- Book 5 -->
+    <string name="book5_title">The Monk Who Sold His Ferrari</string>
+    <string name="book5_author">Robin Sharma</string>
+    <string name="book5_desc">A captivating story that follows the spiritual journey of Julian Mantle, a high-powered attorney who suffers a heart attack and abandons his successful career to seek enlightenment in the Himalayan mountains. He returns years later as a transformed man, sharing the seven timeless virtues of enlightened living that he learned from the sages of Sivana. This inspiring fable offers practical wisdom about fulfilling your dreams, reaching your destiny, and living with greater joy, purpose, and inner peace in our fast-paced modern world.</string>
+    <string name="book5_time">4 hours (198 pages)</string>
+
+    <!-- Book 6 -->
+    <string name="book6_title">Tuesdays with Morrie</string>
+    <string name="book6_author">Mitch Albom</string>
+    <string name="book6_desc">A deeply moving memoir that chronicles the author\'s weekly visits with his former college professor, Morrie Schwartz, who is dying from ALS. Over the course of fourteen Tuesdays, Morrie shares his final lessons about life, love, work, family, and aging with grace and dignity. Their conversations explore what it means to live a meaningful life and face death with courage and wisdom. This beautiful book will make you laugh, cry, and reflect on your own life priorities and relationships.</string>
+    <string name="book6_time">3 hours (192 pages)</string>
+
+    <!-- Book 7 -->
+    <string name="book7_title">Beyond Good and Evil</string>
+    <string name="book7_author">Friedrich Nietzsche</string>
+    <string name="book7_desc">A foundational work of modern philosophy that challenges traditional European morality and attacks the concept of universal truths. Nietzsche argues that what people call \"truth\" is merely a mobile army of metaphors and that conventional good vs. evil distinctions are simplistic and limiting. He introduces concepts like the \"will to power\" and the \"Übermensch\" (Overman) while critiquing religion, nationalism, and democratic ideals. This provocative work encourages readers to think beyond conventional morality and create their own values.</string>
+    <string name="book7_time">6 hours (240 pages)</string>
+
+    <!-- Book 8 -->
+    <string name="book8_title">Letters from a Stoic</string>
+    <string name="book8_author">Seneca</string>
+    <string name="book8_desc">A collection of 124 letters written by the Roman Stoic philosopher Seneca to his friend Lucilius Junior. These letters cover a wide range of practical philosophical topics including how to handle adversity, the shortness of life, controlling anger, dealing with grief, the wise use of time, and the pursuit of virtue. Seneca\'s writing is remarkably accessible and relevant to modern readers, offering timeless advice on how to live with wisdom, resilience, and tranquility in a chaotic world. His insights remain profoundly useful for navigating life\'s challenges today.</string>
+    <string name="book8_time">8 hours (254 pages)</string>
+
+    <!-- Book 9 -->
+    <string name="book9_title">Animal Farm</string>
+    <string name="book9_author">George Orwell</string>
+    <string name="book9_desc">A brilliant political satire and allegory that tells the story of a group of farm animals who rebel against their human farmer, hoping to create a society where animals can be equal, free, and happy. However, their revolution is betrayed as the pigs, who take leadership, become increasingly corrupt and oppressive. The famous maxim \"All animals are equal, but some animals are more equal than others\" encapsulates the novel\'s powerful critique of totalitarianism and the corruption of revolutionary ideals. This timeless fable remains a sharp commentary on power, propaganda, and political corruption.</string>
+    <string name="book9_time">4 hours (112 pages)</string>
+
+</resources>

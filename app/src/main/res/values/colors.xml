@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================= -->
+<!-- APPLICATION COLOR PALETTE -->
+<!-- Orange color scheme for Material 3 theme -->
+<!-- Matches Variation Code requirement: Orange accent -->
+<!-- ============================================= -->
+<resources>
+    <!-- ============================================= -->
+    <!-- PRIMARY ORANGE COLORS -->
+    <!-- ============================================= -->
+
+    <!-- Main orange color - used for primary buttons, app bar, active states -->
+    <color name="orange_500">#FF9800</color>    <!-- Medium orange - primary brand color -->
+
+    <!-- Darker orange - used for pressed states, variants, darker elements -->
+    <color name="orange_700">#F57C00</color>    <!-- Dark orange - primary variant -->
+
+    <!-- Lighter orange - used for secondary elements, backgrounds, highlights -->
+    <color name="orange_200">#FFCC80</color>    <!-- Light orange - secondary color -->
+
+    <!-- ============================================= -->
+    <!-- NEUTRAL COLORS -->
+    <!-- ============================================= -->
+
+    <!-- Pure white - used for text on colored backgrounds, cards, backgrounds -->
+    <color name="white">#FFFFFF</color>          <!-- White - for text and backgrounds -->
+
+</resources>
