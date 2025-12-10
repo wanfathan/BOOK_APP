@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
-import com.bumptech.glide.Glide // Import Glide
+import com.bumptech.glide.Glide
 
 // ==================================================
 // ACTIVITY B - BOOK DETAILS SCREEN
@@ -31,7 +31,7 @@ class ActivityB : AppCompatActivity() {
         val time = intent.getStringExtra("TIME") ?: ""
         val bookUrl = intent.getStringExtra("URL") ?: ""
 
-        // Step 4: Get Image Reference (String) - Can be URL or "book1"
+        // Get Image Reference (String) - Can be URL or "book1"
         val imageRef = intent.getStringExtra("IMAGE_REF") ?: "book1"
 
         // ========== INITIALIZE VIEWS ==========
@@ -78,7 +78,9 @@ class ActivityB : AppCompatActivity() {
 
         // 1. "Try it" Button (Web Link)
         tryItButton.setOnClickListener {
+            // Use the book's specific URL if available, otherwise search Goodreads
             val finalUrl = if (bookUrl.isNotEmpty()) bookUrl else "https://www.goodreads.com/search?q=$title"
+
             val intent = Intent(this@ActivityB, WebViewActivity::class.java).apply {
                 putExtra("URL", finalUrl)
             }
@@ -104,8 +106,6 @@ class ActivityB : AppCompatActivity() {
                 putExtra("DESC", desc)
                 putExtra("TIME", time)
                 putExtra("URL", bookUrl)
-
-                // Pass the image ref back so Edit screen knows what to show
                 putExtra("IMAGE_REF", imageRef)
             }
             startActivity(intent)

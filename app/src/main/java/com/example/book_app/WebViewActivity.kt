@@ -11,16 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 // ==================================================
 class WebViewActivity : AppCompatActivity() {
 
+    // Declare WebView here so it can be used in onBackPressed
+    private lateinit var webView: WebView
+
     // ==================== LIFECYCLE METHODS ====================
-    /**
-     * Creates the WebView and loads the Goodreads URL
-     */
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Create WebView
-        val webView = WebView(this)
+        // Initialize the WebView
+        webView = WebView(this)
         setContentView(webView)
 
         // Get URL from Intent extras, fallback to Goodreads homepage
@@ -38,10 +38,9 @@ class WebViewActivity : AppCompatActivity() {
     // ==================== NAVIGATION METHODS ====================
     /**
      * Handles the back/up button in the action bar
-     * @return Boolean indicating if the event was handled
      */
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        onBackPressed() // Delegate to the logic below
         return true
     }
 
@@ -49,8 +48,8 @@ class WebViewActivity : AppCompatActivity() {
      * Handles device back button - navigates back in WebView history if possible
      */
     override fun onBackPressed() {
-        val webView = findViewById<WebView>(android.R.id.content)
-        if (webView.canGoBack()) {
+        // Fix: Use the class variable 'webView' instead of finding by ID
+        if (::webView.isInitialized && webView.canGoBack()) {
             webView.goBack() // Go to previous page in WebView history
         } else {
             super.onBackPressed() // Close the activity if no history
