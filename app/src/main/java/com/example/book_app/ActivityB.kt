@@ -6,103 +6,138 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.google.firebase.firestore.FirebaseFirestore
+import com.bumptech.glide.Glide // Import Glide
 
 // ==================================================
 // ACTIVITY B - BOOK DETAILS SCREEN
 // ==================================================
 class ActivityB : AppCompatActivity() {
 
-    // ==================== LIFECYCLE METHODS ====================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b)
 
-        // Enable back button in the action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Book Details"
 
         // ========== GET DATA FROM INTENT ==========
-        // Retrieve book data passed from MainActivity via Intent extras
-        val bookId = intent.getIntExtra("BOOK_ID", 0)
-        val titleResId = intent.getIntExtra("TITLE_RES_ID", 0)
-        val authorResId = intent.getIntExtra("AUTHOR_RES_ID", 0)
-        val imageResId = intent.getIntExtra("IMAGE_RES_ID", 0)
-        val descResId = intent.getIntExtra("DESC_RES_ID", 0)
-        val timeResId = intent.getIntExtra("TIME_RES_ID", 0)
+        val bookId = intent.getStringExtra("BOOK_ID")
+        val title = intent.getStringExtra("TITLE") ?: "No Title"
+        val author = intent.getStringExtra("AUTHOR") ?: "Unknown Author"
+        val desc = intent.getStringExtra("DESC") ?: "No description available."
+        val time = intent.getStringExtra("TIME") ?: ""
+        val bookUrl = intent.getStringExtra("URL") ?: ""
+
+        // Step 4: Get Image Reference (String) - Can be URL or "book1"
+        val imageRef = intent.getStringExtra("IMAGE_REF") ?: "book1"
 
         // ========== INITIALIZE VIEWS ==========
-        // Find all views from the layout
         val bookImage: ImageView = findViewById(R.id.detailBookImage)
         val bookTitle: TextView = findViewById(R.id.detailBookTitle)
         val bookAuthor: TextView = findViewById(R.id.detailBookAuthor)
         val bookTime: TextView = findViewById(R.id.detailBookTime)
         val bookDesc: TextView = findViewById(R.id.detailBookDesc)
+
+        // Buttons
         val tryItButton: Button = findViewById(R.id.tryItButton)
         val shareButton: Button = findViewById(R.id.shareButton)
+        val editButton: Button = findViewById(R.id.editButton)
+        val deleteButton: Button = findViewById(R.id.deleteButton)
 
-        // ========== SET BOOK DATA TO VIEWS ==========
-        // Display the book information in the views
-        bookImage.setImageResource(imageResId)
-        bookTitle.setText(titleResId)
-        bookAuthor.setText(authorResId)
-        bookDesc.setText(descResId)
+        // ========== SET DATA ==========
+        bookTitle.text = title
+        bookAuthor.text = author
+        bookDesc.text = desc
+        bookTime.text = "Reading Time: $time"
 
-        // Variation Code: Time Field - Display reading time with label
-        val timeText = "${getString(R.string.time_label)} ${getString(timeResId)}"
-        bookTime.text = timeText
+        // --- INTELLIGENT IMAGE LOADING ---
+        if (imageRef.startsWith("http")) {
+            // It's a URL - Use Glide
+            Glide.with(this)
+                .load(imageRef)
+                .fitCenter()
+                .placeholder(R.drawable.book1)
+                .into(bookImage)
+        } else {
+            // It's a local file name (book1, etc.)
+            val imageResId = try {
+                resources.getIdentifier(imageRef, "drawable", packageName)
+            } catch (e: Exception) {
+                R.drawable.book1
+            }
+            bookImage.setImageResource(if (imageResId != 0) imageResId else R.drawable.book1)
+        }
 
-        // ========== ACCESSIBILITY ==========
-        // Set content description for TalkBack support
-        val bookTitleText = getString(titleResId)
-        bookImage.contentDescription = "Cover of $bookTitleText"
+        // Accessibility
+        bookImage.contentDescription = "Cover of $title"
 
-        // ========== BUTTON CLICK LISTENERS ==========
+        // ========== BUTTON LISTENERS ==========
 
-        //"Try it" Button - Opens Goodreads in WebView
+        // 1. "Try it" Button (Web Link)
         tryItButton.setOnClickListener {
-            val goodreadsUrl = getGoodreadsUrl(bookId)
+            val finalUrl = if (bookUrl.isNotEmpty()) bookUrl else "https://www.goodreads.com/search?q=$title"
             val intent = Intent(this@ActivityB, WebViewActivity::class.java).apply {
-                putExtra("URL", goodreadsUrl)
+                putExtra("URL", finalUrl)
             }
             startActivity(intent)
         }
 
-        // Share Button - Implicit Intent for sharing book title
+        // 2. Share Button
         shareButton.setOnClickListener {
             val shareIntent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "Check out this book: ${getString(titleResId)}")
+                putExtra(Intent.EXTRA_TEXT, "Check out this book: $title by $author")
                 type = "text/plain"
             }
             startActivity(Intent.createChooser(shareIntent, "Share this book via"))
         }
-    }
 
-    // ==================== HELPER METHODS ====================
-    /**
-     * Returns Goodreads URL based on book ID
-     * @param bookId The unique identifier of the book
-     * @return Goodreads URL string for the specific book
-     */
-    private fun getGoodreadsUrl(bookId: Int): String {
-        return when (bookId) {
-            1 -> "https://www.goodreads.com/book/show/48855.The_Diary_of_a_Young_Girl"
-            2 -> "https://www.goodreads.com/book/show/4865.How_to_Win_Friends_and_Influence_People"
-            3 -> "https://www.goodreads.com/book/show/18144590-the-alchemist"
-            4 -> "https://www.goodreads.com/book/show/30659.Meditations"
-            5 -> "https://www.goodreads.com/book/show/43877.The_Monk_Who_Sold_His_Ferrari"
-            6 -> "https://www.goodreads.com/book/show/6900.Tuesdays_with_Morrie"
-            7 -> "https://www.goodreads.com/book/show/12321.Beyond_Good_and_Evil"
-            8 -> "https://www.goodreads.com/book/show/97411.Letters_from_a_Stoic"
-            9 -> "https://www.goodreads.com/book/show/170448.Animal_Farm"
-            else -> "https://www.goodreads.com/"
+        // 3. Edit Button (Update)
+        editButton.setOnClickListener {
+            val intent = Intent(this, AddEditBookActivity::class.java).apply {
+                putExtra("BOOK_ID", bookId)
+                putExtra("TITLE", title)
+                putExtra("AUTHOR", author)
+                putExtra("DESC", desc)
+                putExtra("TIME", time)
+                putExtra("URL", bookUrl)
+
+                // Pass the image ref back so Edit screen knows what to show
+                putExtra("IMAGE_REF", imageRef)
+            }
+            startActivity(intent)
+            finish()
+        }
+
+        // 4. Delete Button (Remove)
+        deleteButton.setOnClickListener {
+            if (bookId != null) {
+                AlertDialog.Builder(this)
+                    .setTitle("Delete Book")
+                    .setMessage("Are you sure you want to delete this book? This cannot be undone.")
+                    .setPositiveButton("Delete") { _, _ ->
+                        val db = FirebaseFirestore.getInstance()
+                        db.collection("items").document(bookId)
+                            .delete()
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Book Deleted Successfully", Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this, "Error deleting: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .show()
+            } else {
+                Toast.makeText(this, "Error: Cannot delete (No ID found)", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    // ==================== NAVIGATION METHODS ====================
-    /**
-     * Handles the back/up button in the action bar
-     * @return Boolean indicating if the event was handled
-     */
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

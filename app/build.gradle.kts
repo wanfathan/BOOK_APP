@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    // ==================== FIREBASE PLUGIN ====================
+    // Required for Firebase to function
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -9,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.book_app"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -42,4 +45,15 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    // ==================== FIREBASE DEPENDENCIES ====================
+    // Import the Firebase BoM (Bill of Materials)
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    // Firebase Authentication
+    implementation("com.google.firebase:firebase-auth")
+    // Cloud Firestore
+    implementation("com.google.firebase:firebase-firestore")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
 }

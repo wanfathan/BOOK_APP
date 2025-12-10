@@ -72,15 +72,15 @@
     <!-- VARIATION CODE MAPPING DETAILS -->
     <!-- ============================================= -->
     <TextView
-        android:layout_width="267dp"
-        android:layout_height="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:background="#FFF3E0"
         android:gravity="center"
         android:lineSpacingExtra="4sp"
         android:padding="16dp"
-        android:text="Theme: Books (14 % 6 = 2)\nLayout: Staggered Grid (14 % 3 = 2)\nAccent: Orange (14 % 4 = 2)\nExtra Field: Time (14 % 5 = 4)\nAction Button: Try it (14 % 2 = 0)"
-        android:textSize="14sp"
+        android:text="Theme: Books (14 % 6 = 2)\nLayout: Staggered Grid (14 % 3 = 2)\nAccent: Orange (14 % 4 = 2)\nExtra Field: Time (14 % 5 = 4)\nAction Button: Try it (14 % 2 = 0)\n\nEven ID Rule: Quick Add FAB"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <!-- ============================================= -->

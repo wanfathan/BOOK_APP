@@ -91,6 +91,24 @@
             android:textSize="16sp"
             android:minWidth="120dp" /> <!-- Minimum touch target size -->
 
+            <!--Edit Button -->
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Edit Book Details"
+            android:backgroundTint="@color/orange_500" />
+
+        <!-- ========== DELETE BUTTONS ========== -->
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Delete Book"
+            android:backgroundTint="@android:color/holo_red_dark" />
+
     </LinearLayout>
 
 </ScrollView>
